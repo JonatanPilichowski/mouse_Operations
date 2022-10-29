@@ -1,29 +1,23 @@
 package configuration.reader;
 
 
-import com.fasterxml.jackson.core.exc.StreamReadException;
-import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import configuration.models.Config;
+import lombok.SneakyThrows;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 public class YamlReader {
-    private Config config;
+    private final Config config;
 
+    @SneakyThrows
     public YamlReader() {
-        try {
-            ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-            this.config = mapper.readValue(new File("src/main/resources.config.yaml"), Config.class);
-        } catch (FileNotFoundException e){
-            e.printStackTrace();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+        this.config = mapper.readValue(new File("src/main/resources/config.yaml"), Config.class);
     }
 
-    public Config getConfig() {return  config;}
+    public Config getConfig() {
+        return config;
+    }
 }

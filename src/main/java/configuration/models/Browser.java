@@ -11,9 +11,15 @@ import java.util.Map;
 @Data
 @NoArgsConstructor
 public class Browser {
-    private String browserName;
-    private boolean browserAttachScreenshot;
-    private boolean headlessMode;
-    private int browserTimeout;
-    private String appUrl;
+    private Map<String, Object> properties = new LinkedHashMap<>();
+
+    @JsonAnySetter
+    void setProperties(String key, Object value) {
+        properties.put(key, value);
+    }
+
+    @JsonAnyGetter
+    public Map<String, Object> getProperties() {
+        return properties;
+    }
 }
