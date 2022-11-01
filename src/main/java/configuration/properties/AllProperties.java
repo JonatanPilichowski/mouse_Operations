@@ -19,6 +19,7 @@ public class AllProperties {
     public AllProperties() {
         setBrowserProperties();
         setEnvironmentProperties();
+        logger.info(">>>>>>>>>>>>>>Environment properties loaded to System");
     }
 
     public static AllProperties getInstance() {

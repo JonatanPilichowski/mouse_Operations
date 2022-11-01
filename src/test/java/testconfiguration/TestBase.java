@@ -12,12 +12,12 @@ import org.slf4j.LoggerFactory;
 public class TestBase {
     public static WebDriver driver;
     private static final Logger logger = LoggerFactory.getLogger(TestBase.class);
-
+    private static AllProperties allProperties;
+    private static BrowserFactory browserFactory;
     @BeforeAll
     static void setupDriver() {
-        AllProperties allProperties = AllProperties.getInstance();
-        BrowserFactory browserFactory = new BrowserFactory();
-        driver = browserFactory.getDriver();
+        allProperties = AllProperties.getInstance();
+        browserFactory = new BrowserFactory();
         logger.info("Webdriver started successfully");
     }
 
@@ -27,7 +27,7 @@ public class TestBase {
 
     @BeforeEach
     void setupStart() {
-
+        driver = browserFactory.getDriver();
     }
 
     @AfterEach
