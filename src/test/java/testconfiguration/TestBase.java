@@ -10,10 +10,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class TestBase {
-    public static WebDriver driver;
     private static final Logger logger = LoggerFactory.getLogger(TestBase.class);
+    public static WebDriver driver;
     private static AllProperties allProperties;
     private static BrowserFactory browserFactory;
+
     @BeforeAll
     static void setupDriver() {
         allProperties = AllProperties.getInstance();

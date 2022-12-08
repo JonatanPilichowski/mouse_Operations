@@ -4,11 +4,15 @@ browser:
   browserAttachScreenshot: false
   headlessMode: false
   browserTimeout: 6
+  timeout: 10
 environments:
   testEnv:
     envName: testEnv
-    appUrl: https://www.filmweb.pl/
+    appUrl: http://146.59.32.4/index.php
     title: Filmweb - filmy takie jak Ty!
+    menSubCategoryText: MEN
+    stationerySubCategoryText: STATIONERY
+    artCategoryText: ART
   intEnv:
     envName: intEnv
     appUrl: https://www.selenium.dev/
